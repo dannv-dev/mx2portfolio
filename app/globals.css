@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to pure dark theme with black/grey colors */
+  --background: #000000; /* Pure black background */
+  --foreground: #ffffff; /* Pure white text */
+  --card: #111111; /* Very dark gray for cards */
+  --card-foreground: #ffffff; /* White card text */
+  --popover: #1a1a1a; /* Dark popover */
+  --popover-foreground: #ffffff; /* White popover text */
+  --primary: #ffffff; /* White for primary actions */
+  --primary-foreground: #000000; /* Black text on white */
+  --secondary: #666666; /* Medium gray for secondary elements */
+  --secondary-foreground: #ffffff; /* White secondary text */
+  --muted: #1a1a1a; /* Dark muted background */
+  --muted-foreground: #cccccc; /* Light gray muted text */
+  --accent: #ffffff; /* White accent */
+  --accent-foreground: #000000; /* Black accent text */
+  --destructive: #e22e2e; /* Red for destructive actions */
+  --destructive-foreground: #ffffff; /* White destructive text */
+  --border: #333333; /* Dark gray borders */
+  --input: #1a1a1a; /* Dark input background */
+  --ring: rgba(255, 255, 255, 0.5); /* White focus ring */
+  --chart-1: #ffffff; /* White for charts */
+  --chart-2: #cccccc; /* Light gray for charts */
+  --chart-3: #999999; /* Medium gray for charts */
+  --chart-4: #666666; /* Dark gray for charts */
+  --chart-5: #333333; /* Darker gray for charts */
+  --radius: 0.5rem; /* Rounded corners */
+  --sidebar: #111111; /* Dark sidebar */
+  --sidebar-foreground: #ffffff; /* White sidebar text */
+  --sidebar-primary: #ffffff; /* White sidebar primary */
+  --sidebar-primary-foreground: #000000; /* Black sidebar primary text */
+  --sidebar-accent: #666666; /* Medium gray sidebar accent */
+  --sidebar-accent-foreground: #ffffff; /* White sidebar accent text */
+  --sidebar-border: #333333; /* Dark gray sidebar border */
+  --sidebar-ring: rgba(255, 255, 255, 0.5); /* White sidebar ring */
+  /* Updated font family variables for Geist Sans and Manrope */
+  --font-heading: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-geist: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  /* Same dark theme values for consistency */
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #666666;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #cccccc;
+  --accent: #ffffff;
+  --accent-foreground: #000000;
+  --destructive: #e22e2e;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #1a1a1a;
+  --ring: rgba(255, 255, 255, 0.5);
+  --chart-1: #ffffff;
+  --chart-2: #cccccc;
+  --chart-3: #999999;
+  --chart-4: #666666;
+  --chart-5: #333333;
+  --sidebar: #111111;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #666666;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #333333;
+  --sidebar-ring: rgba(255, 255, 255, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Updated font family variables for Geist Sans and Manrope */
+  --font-sans: var(--font-geist);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-manrope);
+  }
+  /* Updated heading font styles to use Geist Sans */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-geist);
+    font-weight: 900;
+  }
+}
